@@ -1,0 +1,51 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block body %}
+
+{% comment %} <form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p> {% endcomment %}
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>f_name</th>
+    <th>last name</th>
+    <th>age</th>
+    <th></th>
+
+    {% comment %} <th>age</th> {% endcomment %}
+  </tr>
+  {% for student in students %}
+  <tr>
+    <td>{{student.id}}</td>
+    <td>{{student.f_name}}</td>
+    <td>{{student.l_name}}</td>
+    <td>{{student.age}}</td>
+    <td><a class="button3" href="{%url 'delete_student' student.id%}">delete</a></td>
+    <td><a class="button4" href="{% url 'update_student' student.id %}">update</a></td>  
+  </tr>
+
+{% endfor %}
+
+</table>
+
+
+
+{% endblock body %}
+  
+
+

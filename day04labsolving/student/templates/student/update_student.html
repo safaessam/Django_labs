@@ -1,0 +1,25 @@
+
+    {% extends 'base.html' %}
+{% block body %}
+    <form method="POST" action="{% url 'update_student' student.id %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" value="{{ student.f_name }}" class="form-control" id="f_name" name="f_name">
+        </div>
+        <!-- rest of your form -->
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" placeholder="Enter Last name" name="l_name" value="{{ students.l_name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="age " >age:</label>
+            <input type="text" placeholder="Enter age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" placeholder="Enter Email" name="email" value="{{ students.email }}" required>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+    {% endblock body %}
